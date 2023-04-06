@@ -4,7 +4,7 @@ import numpy as np
 import streamlit as st
 from PIL import Image
 import numpy as np
-!pip install deepface
+pip install deepface
 from deepface import DeepFace
 
    
