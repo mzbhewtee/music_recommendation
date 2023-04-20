@@ -3,6 +3,7 @@ import random
 import numpy as np
 import streamlit as st
 from PIL import Image
+import cv2
 import numpy as np
 from deepface import DeepFace
 
