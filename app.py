@@ -7,6 +7,7 @@ from PIL import Image
 import numpy as np
 from deepface import DeepFace
 
+
    
 # Define a function to convert the image to a numpy array
 def img_to_array(img):
