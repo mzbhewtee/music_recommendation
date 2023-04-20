@@ -1,2 +1,3 @@
 deepface
+libgl1-mesa-glx
 
