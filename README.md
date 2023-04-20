@@ -2,7 +2,7 @@
 ---
 Author: Beauty Ikudehinbu
 
-## This project contains a machine learning model that recommends songs based on the user's emotion. The emotion is detected using a pre-trained model called deepface. The model then uses k-means clustering to determine which songs are happy, sad, or neutral based on their variance.
+This project contains a machine learning model that recommends songs based on the user's emotion. The emotion is detected using a pre-trained model called deepface. The model then uses k-means clustering to determine which songs are happy, sad, or neutral based on their variance.
 
 ## Files
 - Song_recommendation.ipynb: This file contains the code for the machine learning model used for song recommendation. The code includes the pre-trained model, deepface, and k-means clustering. Note that the code also includes an implementation of DBSCAN, which has been commented out due to memory issues.
@@ -26,7 +26,8 @@ To run the music recommendation system, follow these instructions:
 * Click on the "Recommend Song" button to view the recommended song.
 Thank you for using the music recommendation system!
 
-
+## Walkthrough Video
+https://clipchamp.com/watch/W6QeRpLr0Vz
 
 
 
