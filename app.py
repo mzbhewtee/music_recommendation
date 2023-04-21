@@ -172,6 +172,6 @@ def final_recommendation(data=get_data()):
     return recommended_songs, song_choice
 
 x = final_recommendation(get_data())
-
+emotion()
 st.write("The recommended song based on your mood is", x[1])
 st.write(x[0])
