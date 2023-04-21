@@ -29,5 +29,8 @@ Thank you for using the music recommendation system!
 ## Walkthrough Video
 https://clipchamp.com/watch/W6QeRpLr0Vz
 
+## Deployed 
+https://mzbhewtee-music-recommendation-app-aan631.streamlit.app/ 
+
 
 
