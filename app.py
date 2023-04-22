@@ -4,32 +4,32 @@ import numpy as np
 import streamlit as st
 from PIL import Image
 import numpy as np
-from deepface import DeepFace
+# from deepface import DeepFace
 
 
    
 # Define a function to convert the image to a numpy array
-def img_to_array(img):
-    img = np.array(img.convert('RGB'))
-    return img[:, :, ::-1].copy()
+# def img_to_array(img):
+#     img = np.array(img.convert('RGB'))
+#     return img[:, :, ::-1].copy()
    
    
 index = 0
 def emotion():
-    try:
-        img = st.camera_input("Take a picture")
-        if img:
-            img = Image.open(img)
-            img_array = img_to_array(img)
-            result = DeepFace.analyze(img_array, actions=['emotion'])
-            emotion = result[0]['dominant_emotion']
-            st.write("Your emotion based on the image is: ", emotion)
-            return emotion
-    except ValueError:
-        st.write("Sorry, a face could not be detected")
-        emotion = st.text_input("Enter an emotion: ").lower()
-        st.write("You entered: ", emotion)
-        return emotion
+    # try:
+    #     img = st.camera_input("Take a picture")
+    #     if img:
+    #         img = Image.open(img)
+    #         img_array = img_to_array(img)
+    #         result = DeepFace.analyze(img_array, actions=['emotion'])
+    #         emotion = result[0]['dominant_emotion']
+    #         st.write("Your emotion based on the image is: ", emotion)
+    #         return emotion
+    # except ValueError:
+        # st.write("Sorry, a face could not be detected")
+    emotion = st.text_input("Enter an emotion: ").lower()
+    st.write("You entered: ", emotion)
+    return emotion
 
     
 with open('model.sav', 'rb') as f:
