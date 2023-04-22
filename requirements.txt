@@ -1,4 +1,5 @@
 opencv-python-headless
 deepface
 streamlit
-
+sklearn.feature_extraction.text
+sklearn.metrics.pairwise

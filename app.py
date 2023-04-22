@@ -4,6 +4,9 @@ import numpy as np
 import streamlit as st
 from PIL import Image
 import numpy as np
+import sklearn
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 # from deepface import DeepFace
 
 
@@ -104,7 +107,7 @@ def create_list(mood, data=get_data()):
 
 create_list(dominant_emotion)
 
-from sklearn.feature_extraction.text import CountVectorizer
+
 
 # Initialize a CountVectorizer object
 vectorizer = CountVectorizer()
@@ -113,8 +116,6 @@ vectorizer = CountVectorizer()
 # and store it in the vectorizer variable
 vectorizer = vectorizer.fit(get_data())
 
-
-from sklearn.metrics.pairwise import cosine_similarity
 
 # function to calculate similarities between input song and all other songs in the dataset
 #This function is to get the similarity of the input songs with other songs in the dataset
