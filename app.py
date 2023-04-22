@@ -5,6 +5,9 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 from deepface import DeepFace
+import os
+
+os.environ["STREAMLIT_SERVER_CLAIMS"] = '{"graphics": {"backend": "tk"}}'
 
 
    
