@@ -16,8 +16,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 #     img = np.array(img.convert('RGB'))
 #     return img[:, :, ::-1].copy()
    
-   
-def emotion():
+st.title("Welcome to Emotion-based music recommender")
+st.write("How it works")
+st.write("Kindly input your emotion so we can give you some recommendations")
+# def emotion():
     # try:
     #     img = st.camera_input("Take a picture")
     #     if img:
@@ -29,9 +31,9 @@ def emotion():
     #         return emotion
     # except ValueError:
         # st.write("Sorry, a face could not be detected")
-    emotion = st.text_input("Enter an emotion: ", key="emotion_input_" + str(random.randint(0, 1000000))).lower()
-    st.write("Dominant emotion detected: ", emotion)
-    return emotion
+emotion = st.text_input("Enter an emotion: ").lower()
+st.write("Dominant emotion detected: ", emotion)
+    # return emotion
     
 with open('model.sav', 'rb') as f:
     kmeans, sad_dataset, happy_dataset, neutral_dataset = pickle.load(f)
@@ -40,7 +42,7 @@ kmeans = kmeans
 sad_dataset = sad_dataset
 happy_dataset = happy_dataset
 neutral_dataset = neutral_dataset
-dominant_emotion = emotion()
+dominant_emotion = emotion
 
 
 
@@ -154,7 +156,7 @@ def recommend_songs(name, data):
 
     
     # The first song will be the input song itself as the similarity will be highest
-    recommended_songs = data.loc[:, ['name', 'artist', 'year']].iloc[1:11]
+    recommended_songs = data.loc[:, ['name', 'artist']].iloc[1:11]
     
     return recommended_songs
 
