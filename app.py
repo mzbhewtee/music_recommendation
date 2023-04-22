@@ -17,7 +17,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 #     return img[:, :, ::-1].copy()
    
    
-index = 0
 def emotion():
     # try:
     #     img = st.camera_input("Take a picture")
@@ -30,10 +29,9 @@ def emotion():
     #         return emotion
     # except ValueError:
         # st.write("Sorry, a face could not be detected")
-    emotion = st.text_input("Enter an emotion: ").lower()
-    st.write("You entered: ", emotion)
+    emotion = st.text_input("Enter an emotion: ", key="emotion_input_" + str(random.randint(0, 1000000))).lower()
+    st.write("Dominant emotion detected: ", emotion)
     return emotion
-
     
 with open('model.sav', 'rb') as f:
     kmeans, sad_dataset, happy_dataset, neutral_dataset = pickle.load(f)
@@ -43,6 +41,8 @@ sad_dataset = sad_dataset
 happy_dataset = happy_dataset
 neutral_dataset = neutral_dataset
 dominant_emotion = emotion()
+
+
 
 
 #The below function is to get the dataset when an emotion is detected.
@@ -150,14 +150,15 @@ def recommend_songs(name, data):
     
     # Remove duplicates of the input song
     data.drop_duplicates(subset=['name'], inplace=True)
+    data = data.reset_index(drop=True)
+
     
     # The first song will be the input song itself as the similarity will be highest
-    data.reset_index(drop=True, inplace=True)
-    
-    # Return top 10 recommended songs
-    recommended_songs = data[['name', 'artist']][1:11]
+    recommended_songs = data.loc[:, ['name', 'artist', 'year']].iloc[1:11]
     
     return recommended_songs
+
+
 
 # This function recommends 10 songs similar to a random song chosen from a list of sad, happy, and other songs.
 def final_recommendation(data=get_data()):
@@ -173,6 +174,5 @@ def final_recommendation(data=get_data()):
     return recommended_songs, song_choice
 
 x = final_recommendation(get_data())
-emotion()
 st.write("The recommended song based on your mood is", x[1])
 st.write(x[0])
