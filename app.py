@@ -4,7 +4,6 @@ import numpy as np
 import streamlit as st
 from PIL import Image
 import numpy as np
-import sklearn
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 # from deepface import DeepFace
